@@ -1,0 +1,149 @@
+:root {
+    --bg: #ffffff;
+    /* white background */
+    --fg: #000000;
+    /* black foreground */
+    --muted: #4b5563;
+    /* neutral gray for hints */
+    --accent: #2cb262;
+    /* requested accent */
+    --card: #ffffff;
+    --border: #d1d5db;
+    /* light gray border */
+    --radius: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    background: var(--bg);
+    color: var(--fg);
+    display: grid;
+    place-items: start center;
+    padding: 32px 20px 40px;
+}
+
+.shell {
+    width: min(820px, 100%);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+header h1 {
+    margin: 0 0 6px 0;
+    font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+header p {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* Card with smaller placeholder image */
+.hero {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    max-width: 680px;
+    /* smaller image */
+    margin: 0 auto;
+    /* center card */
+}
+
+.hero figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: calc(var(--radius) - 6px);
+    border: 1px dashed #e5e7eb;
+    background: #f8fafc;
+}
+
+.hero img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    width: 400px;
+    /* adjust to taste */
+    margin: 0 auto;
+    /* center it */
+}
+
+.hero svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+}
+
+/* Vertical buttons column */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* always one column */
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    padding: 18px 20px;
+    font-weight: 800;
+    font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 12px;
+    color: var(--fg);
+    background: var(--card);
+    border: 2px solid var(--border);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 120ms ease, border-color 120ms ease, background-color 120ms ease, box-shadow 120ms ease;
+}
+
+.btn::after {
+    /* arrow chevron */
+    content: "→";
+    font-weight: 900;
+    opacity: 0.9;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    outline: none;
+    transform: translateY(-1px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 18px rgba(44, 178, 98, 0.18);
+    background-color: #f9fff9;
+}
+
+.btn span {
+    background: linear-gradient(90deg, var(--accent), #80d9a8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+footer {
+    text-align: center;
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
