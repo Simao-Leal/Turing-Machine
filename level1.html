@@ -1,24 +1,195 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home · Levels</title>
+    <title>Level 1</title>
     <link rel="stylesheet" href="assets/styles.css">
-</head>
+    <link rel="stylesheet" href="assets/styles-level.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header>
+        <h1 id="title">Nível 1</h1>
+        <p>A cada ronda escolhe um código e escolhe até 3 verificadores para questionares.</p>
+      </header>
 
-<body>
-    <main class="shell" aria-labelledby="title">
-        <header>
-            <h1 id="title">Nível 1</h1>
-        </header>        
+      <section class="layout" >
+        
+        <!-- LEFT: controls -->
+        <div>
+        
+        <aside class="panel" >
+          <h2>Código</h2>
+          <div class="triplet">
+            <div class="field">
+              <img class="icon" src="assets/triangle.svg">
+              <div class="number-list">
+                <input type="radio" id="triangle1" name="valTriangle" value="1"><label for="triangle1">1</label>
+                <input type="radio" id="triangle2" name="valTriangle" value="2"><label for="triangle2">2</label>
+                <input type="radio" id="triangle3" name="valTriangle" value="3"><label for="triangle3">3</label>
+                <input type="radio" id="triangle4" name="valTriangle" value="4"><label for="triangle4">4</label>
+                <input type="radio" id="triangle5" name="valTriangle" value="5"><label for="triangle5">5</label>
+              </div>
+            </div>
+            <div class="field">
+              <img class="icon" src="assets/square.svg">
+              <div class="number-list">
+                <input type="radio" id="square1" name="valSquare" value="1"><label for="square1">1</label>
+                <input type="radio" id="square2" name="valSquare" value="2"><label for="square2">2</label>
+                <input type="radio" id="square3" name="valSquare" value="3"><label for="square3">3</label>
+                <input type="radio" id="square4" name="valSquare" value="4"><label for="square4">4</label>
+                <input type="radio" id="square5" name="valSquare" value="5"><label for="square5">5</label>
+              </div>            </div>
+            <div class="field">
+              <img class="icon" src="assets/circle.svg">
+              <div class="number-list">
+                <input type="radio" id="circle1" name="valCircle" value="1"><label for="circle1">1</label>
+                <input type="radio" id="circle2" name="valCircle" value="2"><label for="circle2">2</label>
+                <input type="radio" id="circle3" name="valCircle" value="3"><label for="circle3">3</label>
+                <input type="radio" id="circle4" name="valCircle" value="4"><label for="circle4">4</label>
+                <input type="radio" id="circle5" name="valCircle" value="5"><label for="circle5">5</label>
+              </div>            </div>
+          </div>
+          <div class="actions">
+            <button id="run" class="btn primary"><span>Código Trancado</span></button>
+          </div>
+        </aside>
+        
+
+        <aside class="panel" id="round">
+          <h2>Ronda 1</h2>
+          <p>Questões restantes: 3</p>
+          <button class="btn primary"><span>Terminar ronda</span></button>
+        </aside>
+
+        </div>
+        
+        <!-- RIGHT: 4 selectable images for Level 1 -->
+        <div>
+          <div class="hero" style="padding:14px">
+            <h2>Verificadores</h2>
+            <div class="select-grid" id="imageGrid">
+              <!-- Use checkbox for single-select; update src paths as you add assets -->
+              <label class="img-card">
+                <span class="tag">A</span>
+                <img src="assets/level1/A.png" alt="Option 1" >
+                <img class="badge badge--yes" src="assets/yes.png">
+                <img class="badge badge--no" src="assets/no.png">
+              </label>
+              <label class="img-card">
+                <span class="tag">B</span>
+                <img src="assets/level1/B.png" alt="Option 2" >
+                <img class="badge badge--yes" src="assets/yes.png">
+                <img class="badge badge--no" src="assets/no.png">
+              </label>
+              <label class="img-card">
+                <span class="tag">C</span>
+                <img src="assets/level1/C.png" alt="Option 3" >
+                <img class="badge badge--yes" src="assets/yes.png">
+                <img class="badge badge--no" src="assets/no.png">
+              </label>
+              <label class="img-card show-no">
+                <span class="tag">D</span>
+                <img src="assets/level1/D.png" alt="Option 4" >
+                <img class="badge badge--yes" src="assets/yes.png">
+                <img class="badge badge--no" src="assets/no.png">
+              </label>
+              <label class="img-card show-yes">
+                <span class="tag">E</span>
+                <img src="assets/level1/D.png" alt="Option 4" >
+                <img class="badge badge--yes" src="assets/yes.png">
+                <img class="badge badge--no" src="assets/no.png">
+              </label>
+              <label class="img-card show-yes">
+                <span class="tag">F</span>
+                <img src="assets/level1/D.png" alt="Option 4" >
+                <img class="badge badge--yes" src="assets/yes.png">
+                <img class="badge badge--no" src="assets/no.png">
+              </label>
+            </div>
+          </div>
+        </div>
+
+        
+      </section>
+
+      <!-- RESULTS TABLE (Level 1: 4 columns A–D) -->
+      <section class="results">  
+        <table id="resultsTable">
+          <thead>
+            <tr>
+              <th style="width: 8em;"></th>
+              <th style="width: 4em;"><img class="icon" src="assets/triangle.svg"></th>
+              <th style="width: 4em;"><img class="icon" src="assets/square.svg"></th>
+              <th style="width: 4em;"><img class="icon" src="assets/circle.svg"></th>
+              <th>A</th>
+              <th>B</th>
+              <th>C</th>
+              <th>D</th>
+              <th>E</th>
+              <th>F</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ronda 1</td>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td><img src="assets/yes.png" class="icon"></img></td>
+              <td><img src="assets/yes.png" class="icon"></img></td>
+              <td><img src="assets/yes.png" class="icon"></img></td>
+              <td><img src="assets/yes.png" class="icon"></img></td>
+              <td><img src="assets/yes.png" class="icon"></img></td>
+              <td><img src="assets/yes.png" class="icon"></img></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="cta">
+        <a class="btn big" href="./solution.html"><span>Eu sei a solução</span></a>
+      </div>
     </main>
 
-    Cenas e tal!!!!
+    <script>
+      // Utility: clamp and integer-only behavior for number inputs
+      function normalizeInput(el){
+        let v = parseInt(el.value, 10);
+        if (isNaN(v)) { el.value = ""; return; }
+        if (v < 1) v = 1; if (v > 5) v = 5; el.value = v;
+      }
+      ["n1","n2","n3"].forEach(id => {
+        const el = document.getElementById(id);
+        el.addEventListener('change', () => normalizeInput(el));
+        el.addEventListener('blur', () => normalizeInput(el));
+        el.addEventListener('input', () => { el.value = el.value.replace(/[^0-9]/g, '').slice(0,1); });
+      });
 
-    <!-- No JavaScript required, but you can add script.js below if needed -->
-    <!-- <script src="./script.js"></script> -->
-</body>
+      // Handle "Make query": append a demo row using inputs + selected image id.
+      document.getElementById('run').addEventListener('click', () => {
+        const n1 = document.getElementById('n1');
+        const n2 = document.getElementById('n2');
+        const n3 = document.getElementById('n3');
+        const picked = document.querySelector('input[name="img"]:checked');
 
+        // Basic validation
+        [n1,n2,n3].forEach(normalizeInput);
+        if (!picked){ alert('Please select an image.'); return; }
+        if (!n1.value || !n2.value || !n3.value){ alert('Please enter all three numbers (1–5).'); return; }
+
+        const tbody = document.querySelector('#resultsTable tbody');
+        const tr = document.createElement('tr');
+        // Example mapping; customize to your query semantics later
+        tr.innerHTML = `
+          <td>${n1.value}</td>
+          <td>${n2.value}</td>
+          <td>${n3.value}</td>
+          <td>${picked.value}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    </script>
+  </body>
 </html>
