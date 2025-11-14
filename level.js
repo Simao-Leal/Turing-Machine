@@ -22,7 +22,7 @@ function update_round() {
     if(available_queries == 3) {
         $("#end-round").removeClass("primary").addClass("muted");
         $(".img-card").each(function() {
-            $(this).removeClass("muted show-yes show-no");
+            $(this).removeClass("show-yes show-no").addClass("muted");
         });
     }
     else if(available_queries == 2 || available_queries == 1) {
