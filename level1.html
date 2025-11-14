@@ -52,15 +52,15 @@
               </div>            </div>
           </div>
           <div class="actions">
-            <button id="run" class="btn primary"><span>Código Trancado</span></button>
+            <button id="lock" class="btn primary muted"><span>Trancar Código</span><span class="locked">Código Trancado</span></button>
           </div>
         </aside>
         
 
         <aside class="panel" id="round">
-          <h2>Ronda 1</h2>
-          <p>Questões restantes: 3</p>
-          <button class="btn primary"><span>Terminar ronda</span></button>
+          <h2 id="round-counter">Ronda 1</h2>
+          <p id="query-counter">Questões restantes: 3</p>
+          <button class="btn muted" id="end-round"><span>Terminar ronda</span></button>
         </aside>
 
         </div>
@@ -71,39 +71,39 @@
             <h2>Verificadores</h2>
             <div class="select-grid" id="imageGrid">
               <!-- Use checkbox for single-select; update src paths as you add assets -->
-              <label class="img-card">
+              <label class="img-card muted" data-verifier="A">
                 <span class="tag">A</span>
-                <img src="assets/level1/A.png" alt="Option 1" >
+                <img src="assets/level1/A.png">
                 <img class="badge badge--yes" src="assets/yes.png">
                 <img class="badge badge--no" src="assets/no.png">
               </label>
-              <label class="img-card">
+              <label class="img-card muted" data-verifier="B">
                 <span class="tag">B</span>
-                <img src="assets/level1/B.png" alt="Option 2" >
+                <img src="assets/level1/B.png">
                 <img class="badge badge--yes" src="assets/yes.png">
                 <img class="badge badge--no" src="assets/no.png">
               </label>
-              <label class="img-card">
+              <label class="img-card muted" data-verifier="C">
                 <span class="tag">C</span>
-                <img src="assets/level1/C.png" alt="Option 3" >
+                <img src="assets/level1/C.png">
                 <img class="badge badge--yes" src="assets/yes.png">
                 <img class="badge badge--no" src="assets/no.png">
               </label>
-              <label class="img-card show-no">
+              <label class="img-card muted" data-verifier="D">
                 <span class="tag">D</span>
-                <img src="assets/level1/D.png" alt="Option 4" >
+                <img src="assets/level1/D.png">
                 <img class="badge badge--yes" src="assets/yes.png">
                 <img class="badge badge--no" src="assets/no.png">
               </label>
-              <label class="img-card show-yes">
+              <label class="img-card muted" data-verifier="E">
                 <span class="tag">E</span>
-                <img src="assets/level1/D.png" alt="Option 4" >
+                <img src="assets/level1/D.png">
                 <img class="badge badge--yes" src="assets/yes.png">
                 <img class="badge badge--no" src="assets/no.png">
               </label>
-              <label class="img-card show-yes">
+              <label class="img-card muted" data-verifier="F">
                 <span class="tag">F</span>
-                <img src="assets/level1/D.png" alt="Option 4" >
+                <img src="assets/level1/D.png">
                 <img class="badge badge--yes" src="assets/yes.png">
                 <img class="badge badge--no" src="assets/no.png">
               </label>
@@ -134,7 +134,16 @@
           <tbody>
             <tr>
               <td>Ronda 1</td>
-              <td>1</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <!--
               <td>2</td>
               <td>3</td>
               <td><img src="assets/yes.png" class="icon"></img></td>
@@ -143,53 +152,17 @@
               <td><img src="assets/yes.png" class="icon"></img></td>
               <td><img src="assets/yes.png" class="icon"></img></td>
               <td><img src="assets/yes.png" class="icon"></img></td>
+              -->
             </tr>
           </tbody>
         </table>
       </section>
 
       <div class="cta">
-        <a class="btn big" href="./solution.html"><span>Eu sei a solução</span></a>
+        <btn id="solution" class="btn big" href="./solution.html"><span>Eu sei a solução</span></btn>
       </div>
     </main>
-
-    <script>
-      // Utility: clamp and integer-only behavior for number inputs
-      function normalizeInput(el){
-        let v = parseInt(el.value, 10);
-        if (isNaN(v)) { el.value = ""; return; }
-        if (v < 1) v = 1; if (v > 5) v = 5; el.value = v;
-      }
-      ["n1","n2","n3"].forEach(id => {
-        const el = document.getElementById(id);
-        el.addEventListener('change', () => normalizeInput(el));
-        el.addEventListener('blur', () => normalizeInput(el));
-        el.addEventListener('input', () => { el.value = el.value.replace(/[^0-9]/g, '').slice(0,1); });
-      });
-
-      // Handle "Make query": append a demo row using inputs + selected image id.
-      document.getElementById('run').addEventListener('click', () => {
-        const n1 = document.getElementById('n1');
-        const n2 = document.getElementById('n2');
-        const n3 = document.getElementById('n3');
-        const picked = document.querySelector('input[name="img"]:checked');
-
-        // Basic validation
-        [n1,n2,n3].forEach(normalizeInput);
-        if (!picked){ alert('Please select an image.'); return; }
-        if (!n1.value || !n2.value || !n3.value){ alert('Please enter all three numbers (1–5).'); return; }
-
-        const tbody = document.querySelector('#resultsTable tbody');
-        const tr = document.createElement('tr');
-        // Example mapping; customize to your query semantics later
-        tr.innerHTML = `
-          <td>${n1.value}</td>
-          <td>${n2.value}</td>
-          <td>${n3.value}</td>
-          <td>${picked.value}</td>
-        `;
-        tbody.appendChild(tr);
-      });
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="module" src="level.js"></script>
   </body>
 </html>

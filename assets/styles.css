@@ -154,6 +154,7 @@ border-color: #e5e7eb; /* soft gray border */
 color: #9aa3af; /* muted text */
 box-shadow: none;
 cursor: default;
+pointer-events: none;
 }
 .btn.muted span,
 .btn.is-disabled span,
@@ -165,6 +166,7 @@ background-clip: initial;
 color: currentColor;
 -webkit-text-fill-color: currentColor;
 }
+
 .btn:disabled:hover,
 .btn.muted:hover,
 .btn.is-disabled:hover { /* no hover lift */

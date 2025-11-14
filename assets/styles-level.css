@@ -1,5 +1,5 @@
 /* Page-specific styles (you can move these into assets/styles.css later) */
-.layout { display:grid; grid-template-columns: 1fr 4fr; gap: 15px; align-items:start; }
+.layout { display:grid; grid-template-columns: 1fr 3.9fr; gap: 15px; align-items:start; }
 
 h2 { margin:0 0 10px; font-size:1.7rem; text-transform:uppercase; letter-spacing:.03em; }
 
@@ -41,6 +41,7 @@ transition: border-color .12s ease, box-shadow .12s ease, background-color .12s 
 border-color: var(--accent);
 box-shadow: 0 4px 10px rgba(44,178,98,.12);
 }
+
 .number-list input:checked + label {
 border-color: var(--accent);
 background: #f6fff9;
@@ -58,7 +59,17 @@ box-shadow: 0 6px 12px rgba(44,178,98,.16);
   opacity: .7;
 }
 
-#run {
+.number-list input.locked + label { 
+    border-color: var(--accent);
+    background: #f6fff9;
+    box-shadow: 0 6px 12px rgba(44,178,98,.16);
+    pointer-events: none;
+}
+.number-list input.locked + label:hover { 
+    cursor: default;
+}
+
+#lock {
 width: 100%;
 justify-content: center;
 }
@@ -149,4 +160,17 @@ object-fit: contain;
 
 .cta {
     margin-bottom: 20px;
+}
+
+#lock.locked span {
+    display: none;
+}
+#lock.locked span.locked {
+    display: inline;
+}
+#lock span {
+    display: inline;
+}
+#lock span.locked {
+    display: none;
 }
