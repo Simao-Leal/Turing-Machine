@@ -1,0 +1,10 @@
+{
+    "code":"B4DD11",
+    "number_of_verifiers":4,
+    "solution":
+        {
+            "triangle":4,
+            "square":1,
+            "circle":2
+        }
+}

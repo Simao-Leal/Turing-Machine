@@ -5,7 +5,35 @@ let total_queries = 0;
 
 const letter2column = {"A":5, "B":6, "C":7, "D":8, "E":9, "F":10};
 
-import { verifiers } from "./assets/level1/verifiers.js"
+const params = new URLSearchParams(window.location.search);
+const level_number = params.get('number');
+
+// I cannot, for the life of me, understand how this works. Thanks GPT!
+const url = new URL(`./assets/level${level_number}/info.json`, import.meta.url);
+const info = await (await fetch(url)).json();
+const no_verifiers = info.number_of_verifiers;
+
+const dir = `./assets/level${level_number}/verifiers.js`;
+
+let verifiers = await import(dir);
+
+// load
+$("#title").text(`Nível ${level_number}`);
+
+["A", "B", "C", "D", "E", "F"].slice(0, no_verifiers).forEach( verifier => {
+    $("#imageGrid").append(
+        `
+        <label class="img-card muted" data-verifier="${verifier}">
+                <span class="tag">${verifier}</span>
+                <img src="assets/level${level_number}/${verifier}.png">
+                <img class="badge badge--yes" src="assets/yes.png">
+                <img class="badge badge--no" src="assets/no.png">
+        </label>
+        `
+    );
+    $("#resultsTable thead tr").append(`<th>${verifier}</th>`);
+    $('#resultsTable tbody').html('<tr><td>Ronda 1' + '<td></td>'.repeat(3 + no_verifiers)+'</tr>');
+});
 
 //unmute lock button when all radio buttons are selected
 $(".number-list input[type=radio]").change( () => {
@@ -93,7 +121,7 @@ $("#end-round").click(function() {
     $("#round-counter").text(`Ronda ${round}`);
     available_queries = 3;
     update_round();
-    $('#resultsTable tr:last').after(`<tr><td>Ronda ${round}` + '<td></td>'.repeat(9)); //TODO replace with number of verifiers
+    $('#resultsTable tr:last').after(`<tr><td>Ronda ${round}` + '<td></td>'.repeat(3 + no_verifiers) + '</tr>');
     // unlock code
     $("#lock").removeClass("locked");
     $(".number-list input[type=radio]").each(function(){

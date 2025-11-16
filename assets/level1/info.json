@@ -1,0 +1,10 @@
+{
+    "code":"A4CHBY",
+    "number_of_verifiers":4,
+    "solution":
+        {
+            "triangle":4,
+            "square":2,
+            "circle":1
+        }
+}

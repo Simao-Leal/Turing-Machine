@@ -1,0 +1,10 @@
+{
+    "code":"C51LNWP",
+    "number_of_verifiers":5,
+    "solution":
+        {
+            "triangle":2,
+            "square":4,
+            "circle":5
+        }
+}

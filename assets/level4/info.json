@@ -1,0 +1,10 @@
+{
+    "code":"B52D5WY",
+    "number_of_verifiers":5,
+    "solution":
+        {
+            "triangle":2,
+            "square":3,
+            "circle":3
+        }
+}

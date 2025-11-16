@@ -1,0 +1,10 @@
+{
+    "code":"A523YVN",
+    "number_of_verifiers":5,
+    "solution":
+        {
+            "triangle":2,
+            "square":3,
+            "circle":2
+        }
+}
