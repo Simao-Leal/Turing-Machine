@@ -40,7 +40,8 @@
                 <input type="radio" id="square3" name="valSquare" value="3"><label for="square3">3</label>
                 <input type="radio" id="square4" name="valSquare" value="4"><label for="square4">4</label>
                 <input type="radio" id="square5" name="valSquare" value="5"><label for="square5">5</label>
-              </div>            </div>
+              </div>
+            </div>
             <div class="field">
               <img class="icon" src="assets/circle.svg">
               <div class="number-list">
@@ -49,7 +50,8 @@
                 <input type="radio" id="circle3" name="valCircle" value="3"><label for="circle3">3</label>
                 <input type="radio" id="circle4" name="valCircle" value="4"><label for="circle4">4</label>
                 <input type="radio" id="circle5" name="valCircle" value="5"><label for="circle5">5</label>
-              </div>            </div>
+              </div>
+            </div>
           </div>
           <div class="actions">
             <button id="lock" class="btn primary muted"><span>Trancar Código</span><span class="locked">Código Trancado</span></button>
@@ -95,8 +97,88 @@
       </section>
 
       <div class="cta">
-        <btn id="solution" class="btn big" href="./solution.html"><span>Eu sei a solução</span></btn>
+        <btn id="solutionBtn" class="btn big"><span>Eu sei a solução</span></btn>
       </div>
+
+      <!-- SOLUTION OVERLAY -->
+      <div id="solution-overlay" class="overlay" hidden>
+        <div class="dialog" id="solution-dialog">
+          <h2 id="solTitle">Introduzir solução</h2>
+          <p>Atenção: apenas tens uma oportunidade para tentar adivinhar a solução! Se ainda não tens a certeza de qual é, faz mais perguntas aos verificadores.</p>
+          <div class="triplet triplet-solution">
+            <div class="field">
+              <img class="icon" src="assets/triangle.svg">
+              <div class="number-list">
+                <input type="radio" id="sol-triangle1" name="sol-valTriangle" value="1"><label for="sol-triangle1">1</label>
+                <input type="radio" id="sol-triangle2" name="sol-valTriangle" value="2"><label for="sol-triangle2">2</label>
+                <input type="radio" id="sol-triangle3" name="sol-valTriangle" value="3"><label for="sol-triangle3">3</label>
+                <input type="radio" id="sol-triangle4" name="sol-valTriangle" value="4"><label for="sol-triangle4">4</label>
+                <input type="radio" id="sol-triangle5" name="sol-valTriangle" value="5"><label for="sol-triangle5">5</label>
+              </div>
+            </div>
+            <div class="field">
+              <img class="icon" src="assets/square.svg">
+              <div class="number-list">
+                <input type="radio" id="sol-square1" name="sol-valSquare" value="1"><label for="sol-square1">1</label>
+                <input type="radio" id="sol-square2" name="sol-valSquare" value="2"><label for="sol-square2">2</label>
+                <input type="radio" id="sol-square3" name="sol-valSquare" value="3"><label for="sol-square3">3</label>
+                <input type="radio" id="sol-square4" name="sol-valSquare" value="4"><label for="sol-square4">4</label>
+                <input type="radio" id="sol-square5" name="sol-valSquare" value="5"><label for="sol-square5">5</label>
+              </div>
+            </div>
+            <div class="field">
+              <img class="icon" src="assets/circle.svg">
+              <div class="number-list">
+                <input type="radio" id="sol-circle1" name="sol-valCircle" value="1"><label for="sol-circle1">1</label>
+                <input type="radio" id="sol-circle2" name="sol-valCircle" value="2"><label for="sol-circle2">2</label>
+                <input type="radio" id="sol-circle3" name="sol-valCircle" value="3"><label for="sol-circle3">3</label>
+                <input type="radio" id="sol-circle4" name="sol-valCircle" value="4"><label for="sol-circle4">4</label>
+                <input type="radio" id="sol-circle5" name="sol-valCircle" value="5"><label for="sol-circle5">5</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <button id="solCancel" class="btn"><span>Cancelar</span></button>
+            <button class="btn muted primary" id="submit"><span>Submeter</span></button>
+          </div>
+        </div>
+
+        <div class="dialog" id="results-dialog">
+          <div class="triplet">
+            <div class="field">
+              <img class="icon" src="assets/triangle.svg">
+              <p id="result-triangle"></p>
+            </div>
+            <div class="field">
+              <img class="icon" src="assets/square.svg">
+              <p id="result-square"></p>
+            </div>
+            <div class="field">
+              <img class="icon" src="assets/circle.svg">
+              <p id="result-circle"></p>
+            </div>
+          </div>
+          <section class="results">
+            <table id="final-results-table">
+              <thead>
+                <tr>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </section>
+          <div id="level-result">
+            <div class="loader big"></div>
+          </div>
+          <div id="final-results">
+            <h2>Resultados:</h2>
+            <p></p>
+          </div>
+          <button class="btn primary" id="go-back"><span>Voltar</span></button>
+        </div>
+      </div>
+
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="module" src="level.js"></script>

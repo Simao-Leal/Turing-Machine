@@ -43,7 +43,7 @@ header {
 
 header h1 {
     margin: 0 0 6px 0;
-    font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+    font-size: clamp(1.6rem, 2.8%, 2.3rem);
     letter-spacing: 0.02em;
     text-transform: uppercase;
 }
@@ -107,7 +107,7 @@ header p {
     text-decoration: none;
     padding: 18px 20px;
     font-weight: 800;
-    font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+    font-size: clamp(1.05rem, 2.2%, 1.25rem);
     letter-spacing: 0.04em;
     text-transform: uppercase;
     border-radius: 12px;
@@ -182,4 +182,3 @@ footer {
     color: var(--muted);
     font-size: 0.9rem;
 }
-

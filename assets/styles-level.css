@@ -174,3 +174,75 @@ object-fit: contain;
 #lock span.locked {
     display: none;
 }
+
+
+
+/* overlay */
+.overlay[hidden] { display: none; }
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.45);
+  display: grid; place-items: center; z-index: 50;
+}
+.overlay .dialog {
+  width: min(520px, 92%);
+  background: #fff; border: 1.5px solid var(--border); border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  padding: 16px;
+  display: grid; 
+  place-items: center;
+  align-content: start;
+}
+
+.overlay .dialog[hidden] { display: none !important; }
+
+#solutionForm { display: grid; gap: 12px; }
+#solutionInput {
+  width: 100%; padding: 10px 12px; border: 2px solid var(--border); border-radius: 10px; font-weight: 600;
+}
+#solutionInput:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(44,178,98,.15); }
+.overlay .row { display: flex; gap: 10px; justify-content: flex-end; margin-top: 10px;}
+.visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap; }
+
+.triplet-solution {
+  width: 170pt;
+}
+
+.overlay p {
+  color: var(--muted);
+}
+
+.field p {
+  font-size: 20px;
+  font-weight: 1000;
+  color: black;
+}
+
+img.big, .loader.big {
+  margin: 20px;
+  width: 80pt;
+}
+
+#final-results {
+  text-align: center;
+}
+
+#final-results p {
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  aspect-ratio: 1;
+  margin-inline: auto;
+  border-radius: 50%;
+  background: 
+    radial-gradient(farthest-side,var(--accent) 94%,#0000) top/8px 8px no-repeat,
+    conic-gradient(#0000 30%,var(--accent));
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+  animation: l13 1s infinite linear;
+}
+@keyframes l13{ 
+  100%{transform: rotate(1turn)}
+}
