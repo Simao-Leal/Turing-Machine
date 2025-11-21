@@ -3,6 +3,7 @@ let round = 1;
 let available_queries = 3;
 let total_queries = 0;
 let submited = false;
+let solved = false;
 
 const letter2column = {"A":5, "B":6, "C":7, "D":8, "E":9, "F":10};
 
@@ -245,6 +246,7 @@ $("#submit").click(async function() {
         if(available_queries == 3) round--;
         $('#final-results p').text(`Rondas: ${round} | Questões: ${total_queries}`)
         $('#final-results').show();
+        solved = true;
     } else {
         $('#level-result').html('<img src="assets/no.png" class="big"></img>');
     }
@@ -252,5 +254,8 @@ $("#submit").click(async function() {
 });
 
 $('#go-back').click( () => {
-    document.location.href = 'index.html';
+    let new_params = new URLSearchParams(params);
+    new_params.delete('number');
+    new_params.append(`lvl${level_number}`, `${solved ? 'y' : 'n'},${round},${total_queries}`);
+    document.location.href = 'index.html?'+new_params.toString();
 });

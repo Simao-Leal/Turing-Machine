@@ -9,31 +9,34 @@
 </head>
 
 <body>
-    <main class="shell" aria-labelledby="title">
-        <!--
+    <main class="shell">
+<!--         
         <header>
             <h1 id="title">Choose a Level</h1>
             <p>Start at Level 1 and work your way up—or jump straight to any page.</p>
         </header>
         -->
 
-        <section class="hero" aria-label="Preview">
+        <section class="hero">
             <figure>
                 <img src="assets/logo.png" alt="logo">
             </figure>
         </section>
 
-        <nav class="grid" aria-label="Level links">
-            <a class="btn arrow" href="./level.html?number=1"><span>Nível 1</span></a>
-            <a class="btn arrow" href="./level.html?number=2"><span>Nível 2</span></a>
-            <a class="btn arrow" href="./level.html?number=3"><span>Nível 3</span></a>
-            <a class="btn arrow" href="./level.html?number=4"><span>Nível 4</span></a>
-            <a class="btn arrow" href="./level.html?number=5"><span>Nível 5</span></a>
+        <nav class="grid" id="level-list">
         </nav>
-    </main>
 
-    <!-- No JavaScript required, but you can add script.js below if needed -->
-    <!-- <script src="./script.js"></script> -->
+        <header>
+        <h1>Resultados Globais:</h1>
+        </header>
+        <div id="global-results">
+            <span class="right">Níveis resolvidos:</span><span id="global-solved"></span>
+            <span class="right">Número de total de rondas jogadas:</span><span id="global-rounds"></span>
+            <span class="right">Número de questões perguntadas:</span><span id="global-queries"></span>
+        </div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 
 </html>

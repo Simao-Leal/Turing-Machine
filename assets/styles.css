@@ -42,7 +42,7 @@ header {
 }
 
 header h1 {
-    margin: 0 0 6px 0;
+    margin: 20px 0 6px 0;
     font-size: clamp(1.6rem, 2.8%, 2.3rem);
     letter-spacing: 0.02em;
     text-transform: uppercase;
@@ -181,4 +181,26 @@ footer {
     margin-top: 14px;
     color: var(--muted);
     font-size: 0.9rem;
+}
+
+.icon {display: block;width: 25px;height: 25px;border: 0; object-fit: contain; }
+
+span.btn-results {
+    display: flex;
+    align-items: center;
+    gap: 15px;  
+}
+
+span.btn-results .icon {
+    display: inline;
+}
+
+.level-selector {
+    height : 65px;
+}
+
+#global-results { display:grid; grid-template-columns: auto auto; gap: 10px; margin-bottom: 50px; }
+
+span.right {
+    text-align: right;
 }

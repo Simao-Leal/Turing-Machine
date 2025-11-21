@@ -7,7 +7,6 @@ h2 { margin:0 0 10px; font-size:1.7rem; text-transform:uppercase; letter-spacing
 .panel { background:#fff; border:1.5px solid var(--border); border-radius:16px; padding:16px; box-shadow:0 6px 18px rgba(0,0,0,.06); }
 .triplet { display:grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .field { display:grid; gap:2px; justify-items:center; }
-.icon {display: block;width: 25px;height: 25px;border: 0; object-fit: contain; }
 .field input[type="number"]{ width:100%; padding:10px 12px; border:2px solid var(--border); border-radius:10px; font-weight:700; text-align:center; }
 .field input[type="number"]:focus{ outline:none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(44,178,98,.15); }
 .panel .actions { margin-top:12px; display:flex; gap:10px; justify-content:flex-end; }
